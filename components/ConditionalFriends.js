@@ -94,11 +94,11 @@ export const NewFriends = ({ isLoading, people }) => {
           <CardBody p={2} className="flex p-1 justify-between">
             <div className="flex items-center gap-3">
               <Avatar src={friend.image.url} size="sm"></Avatar>
-              <h4>{friend.username}</h4>
+              <h4 className="w-[80px] overflow-x-auto">{friend.username}</h4>
             </div>
             <Button
               colorScheme="twitter"
-              size="sm"
+              size="xs"
               rightIcon={<AiOutlineUserAdd size={20} />}
               onClick={() => addFriendHandler(friend._id)}
             >
@@ -150,19 +150,19 @@ export const FriendRequest = ({ isLoading, myRequests }) => {
               <Avatar src={friend.sender.image.url} size="sm">
                 <AvatarBadge boxSize="1.25em" bg="green.500" />
               </Avatar>
-              <h4>{friend.sender.username}</h4>
+              <h4 className="w-[80px] overflow-x-auto">{friend.sender.username}</h4>
             </div>
             <div className="flex gap-2">
               <Button
                 colorScheme="red"
-                size="sm"
+                size="xs"
                 onClick={() => rejectHandler(friend.sender._id)}
               >
                 <RxCross1 />
               </Button>
               <Button
                 colorScheme="twitter"
-                size="sm"
+                size="xs"
                 onClick={() => confirmHandler(friend.sender._id)}
               >
                 <AiOutlineCheck />
