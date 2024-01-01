@@ -10,7 +10,7 @@ import {
 import { useLazyFetchMyDataQuery, useLazySearchQuery } from "@redux/api";
 import { clearMessageData } from "@redux/message";
 import { clearUserData, setUserData } from "@redux/myUserData";
-import { clearToken, setToken } from "@redux/tokenStore";
+import { clearToken, selectToken, setToken } from "@redux/tokenStore";
 import { FiLogOut, IoSearch } from "@utils/iconsExport";
 import Cookies from "js-cookie";
 import Image from "next/image";
@@ -24,7 +24,7 @@ const Navbar = ({ cookie }) => {
   const pathname = usePathname();
   const router = useRouter();
   const dispatch = useDispatch();
-  const loggedin = useSelector(selectTokeconsolen);
+  const loggedin = useSelector(selectToken);
   const [fetchData, { isLoading, data }] = useLazySearchQuery();
   const [getMyData] = useLazyFetchMyDataQuery();
 
