@@ -32,8 +32,8 @@ const Friendlist = () => {
   const [getNewFriends, { data: newFriends, isLoading: isFetchingNewFriends }] =
     useLazyGetNewFriendsQuery();
   const [getAllChats, { data: allChats, isLoading: isFetchingAllChats }] =
-    useLazyFetchAllChatQuery();console.
-  const [getMyData] = useLazyFetchMyDataQuery();
+    useLazyFetchAllChatQuery();
+  const[getMyData] = useLazyFetchMyDataQuery();
 
   // using redux lazy query inside useEffect
   useEffect(() => {
@@ -45,8 +45,8 @@ const Friendlist = () => {
     }
   }, [token]);
 
-  const initializeSocket = useCallback(async () => {
-    await connectToSocket();
+  const initializeSocket = useCallback(() => {
+    connectToSocket();
     getMyData()
       .unwrap()
       .then((res) => {
